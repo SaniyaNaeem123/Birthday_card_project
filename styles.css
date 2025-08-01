@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to top right, #ffe4e1, #ffccff);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.card h1 {
+  font-size: 3rem;
+  color: #ff69b4;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.balloons {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.balloon {
+  width: 30px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block;
+  position: relative;
+  animation: float 2s ease-in-out infinite;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: #555;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff69b4;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff1493;
+}
+
+#surpriseMessage {
+  display: none;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #ff1493;
+  animation: pop 1s ease-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #f00;
+  animation: confetti-fall 3s linear infinite;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
